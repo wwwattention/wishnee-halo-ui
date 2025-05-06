@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cherry-red: #E41D2A;
+  --cherry-light: #F24C57;
+  --cherry-dark: #B3151F;
+  --stem-green: #4CBB17;
+  --stem-light: #60D928;
+  --stem-dark: #3A8F12;
+  --white: #FFFFFF;
+  --light-gray: #F0F0F0;
+  --dark-gray: #333333;
+  --glass-blur: blur(10px);
+  --health-sphere: #00BFA5;
+  --wealth-sphere: #E41D2A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-gray);
+}
+
+@layer components {
+  .cherry-svg {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><radialGradient id='cherry' cx='30%' cy='30%' r='70%'><stop offset='0%' stop-color='%23FF5252'/><stop offset='80%' stop-color='%23D10915'/><stop offset='100%' stop-color='%23A50000'/></radialGradient></defs><circle cx='50' cy='60' r='35' fill='url(%23cherry)'/><ellipse cx='35' cy='45' rx='10' ry='7' fill='white' opacity='0.2' transform='rotate(-10, 35, 45)'/><path d='M50,10 C50,10 65,30 65,40 C65,45 60,50 55,50 C50,50 45,45 45,40 C45,30 50,10 50,10 Z' fill='%234CBB17'/></svg>");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .glass-panel {
+    @apply bg-white/60 backdrop-blur-md border border-white/80 shadow-xl;
+  }
+  
+  .input-primary {
+    @apply w-full p-5 text-lg bg-white/90 border-2 border-[#E41D2A]/30 
+           rounded-xl outline-none transition-all focus:border-[#E41D2A] 
+           focus:shadow-lg focus:shadow-[#E41D2A]/10;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 rounded-xl font-medium bg-[#E41D2A] text-white 
+           hover:bg-[#B3151F] transition-colors shadow-md shadow-[#E41D2A]/10
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .suggestion-chip {
+    @apply px-4 py-2 rounded-full text-sm font-medium 
+           bg-white/70 border border-[#E41D2A]/20 
+           hover:bg-[#E41D2A] hover:text-white 
+           transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+}
